@@ -1,5 +1,5 @@
 # Django settings for AdvyatBlog project.
-
+import os
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -8,6 +8,8 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
+
+BLOGDIR = os.path.dirname(os.path.normpath(os.path.abspath(__file__)))
 
 DATABASES = {
     'default': {
@@ -67,8 +69,9 @@ STATIC_ROOT = ''
 STATIC_URL = '/static/'
 
 # Additional locations of static files
+
 STATICFILES_DIRS = (
-    '/Users/anujmathur/projects/open/AdvyatBlog/AdvyatBlog/static',
+    os.path.join(BLOGDIR,'static'),
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -108,7 +111,7 @@ ROOT_URLCONF = 'AdvyatBlog.urls'
 WSGI_APPLICATION = 'AdvyatBlog.wsgi.application'
 
 TEMPLATE_DIRS = (
-    '/Users/anujmathur/projects/open/AdvyatBlog/AdvyatBlog/templates',
+    os.path.join(BLOGDIR,'templates'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
